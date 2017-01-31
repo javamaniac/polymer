@@ -137,7 +137,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('show 1', function() {
         individual.shouldStamp1 = true;
-        individual.render();
         var stamped = individual.shadowRoot.querySelectorAll('*:not(template):not(dom-if):not(span)');
         assert.equal(stamped.length, 1, 'total stamped count incorrect');
         assert.equal(stamped[0].prop, 'prop1');
@@ -146,7 +145,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('show 2', function() {
         individual.shouldStamp2 = true;
-        individual.render();
         var stamped = individual.shadowRoot.querySelectorAll('*:not(template):not(dom-if):not(span)');
         assert.equal(stamped.length, 2, 'total stamped count incorrect');
         assert.equal(stamped[0].prop, 'prop1');
@@ -157,7 +155,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('show 3', function() {
         individual.shouldStamp3 = true;
-        individual.render();
         var stamped = individual.shadowRoot.querySelectorAll('*:not(template):not(dom-if):not(span)');
         assert.equal(stamped.length, 3, 'total stamped count incorrect');
         assert.equal(stamped[0].prop, 'prop1');
@@ -170,7 +167,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('hide 3', function() {
         individual.shouldStamp3 = false;
-        individual.render();
         var stamped = individual.shadowRoot.querySelectorAll('*:not(template):not(dom-if):not(span)');
         assert.equal(stamped.length, 3, 'total stamped count incorrect');
         assert.equal(getComputedStyle(stamped[0]).display, 'inline', 'stamped 1 display wrong');
@@ -180,7 +176,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('hide 2', function() {
         individual.shouldStamp2 = false;
-        individual.render();
         var stamped = individual.shadowRoot.querySelectorAll('*:not(template):not(dom-if):not(span)');
         assert.equal(stamped.length, 3, 'total stamped count incorrect');
         assert.equal(getComputedStyle(stamped[0]).display, 'inline', 'stamped 1 display wrong');
@@ -190,7 +185,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('hide 1', function() {
         individual.shouldStamp1 = false;
-        individual.render();
         var stamped = individual.shadowRoot.querySelectorAll('*:not(template):not(dom-if):not(span)');
         assert.equal(stamped.length, 3, 'total stamped count incorrect');
         assert.equal(getComputedStyle(stamped[0]).display, 'none', 'stamped 1 display wrong');
@@ -200,7 +194,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('show 1', function() {
         individual.shouldStamp1 = true;
-        individual.render();
         var stamped = individual.shadowRoot.querySelectorAll('*:not(template):not(dom-if):not(span)');
         assert.equal(stamped.length, 3, 'total stamped count incorrect');
         assert.equal(getComputedStyle(stamped[0]).display, 'inline', 'stamped 1 display wrong');
@@ -210,7 +203,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('show 2', function() {
         individual.shouldStamp2 = true;
-        individual.render();
         var stamped = individual.shadowRoot.querySelectorAll('*:not(template):not(dom-if):not(span)');
         assert.equal(stamped.length, 3, 'total stamped count incorrect');
         assert.equal(getComputedStyle(stamped[0]).display, 'inline', 'stamped 1 display wrong');
@@ -220,7 +212,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('show 3', function() {
         individual.shouldStamp3 = true;
-        individual.render();
         var stamped = individual.shadowRoot.querySelectorAll('*:not(template):not(dom-if):not(span)');
         assert.equal(stamped.length, 3, 'total stamped count incorrect');
         assert.equal(getComputedStyle(stamped[0]).display, 'inline', 'stamped 1 display wrong');
@@ -240,7 +231,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       test('if=true: everything rendered and visible', function() {
         // first dom-if
         inDocumentIf.if = true;
-        inDocumentIf.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -250,7 +240,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // second dom-if
         var xif = inDocumentContainer.querySelector('dom-if');
         xif.if = true;
-        xif.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -260,7 +249,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // third dom-if
         xif = inDocumentContainer.querySelector('dom-if');
         xif.if = true;
-        xif.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -275,7 +263,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('if=false, restamp=false: everything hidden', function() {
         inDocumentIf.if = false;
-        inDocumentIf.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -290,7 +277,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       test('if=true, restamp=true, everything rendered and visible', function() {
         inDocumentIf.restamp = true;
         inDocumentIf.if = true;
-        inDocumentIf.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -305,7 +291,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       test('if=false, restamp=true, everything gone', function() {
         inDocumentIf.restamp = true;
         inDocumentIf.if = false;
-        inDocumentIf.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -321,7 +306,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       test('if=true: everything rendered and visible', function() {
         // first dom-if
         inDocumentIf.if = true;
-        inDocumentIf.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -331,7 +315,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // second dom-if
         var xif = inDocumentContainer.querySelector('dom-if');
         xif.if = true;
-        xif.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -341,7 +324,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // third dom-if
         xif = inDocumentContainer.querySelector('dom-if');
         xif.if = true;
-        xif.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -374,7 +356,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         unconfigured1.domUpdateHandlerCount = 0;
         unconfigured1.shouldStamp = true;
         unconfigured2.shouldStamp = true;
-        unconfigured1.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -387,7 +368,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       test('if=false, restamp=false: everything hidden', function() {
         unconfigured1.domUpdateHandlerCount = 0;
         unconfigured1.shouldStamp = false;
-        unconfigured1.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -404,7 +384,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         unconfigured1.domUpdateHandlerCount = 0;
         unconfigured1.$['if-1'].restamp = true;
         unconfigured1.shouldStamp = true;
-        unconfigured1.$['if-1'].render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -421,7 +400,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         unconfigured1.domUpdateHandlerCount = 0;
         unconfigured1.$['if-1'].restamp = true;
         unconfigured1.shouldStamp = false;
-        unconfigured1.$['if-1'].render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -439,8 +417,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         unconfigured1.domUpdateHandlerCount = 0;
         unconfigured1.shouldStamp = true;
         unconfigured2.shouldStamp = true;
-        unconfigured1.render();
-        unconfigured2.render();
         if (customElements.flush) {
           customElements.flush();
         }
@@ -499,17 +475,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         showing = structuredContainer.querySelector('.showing');
         assert.notOk(showing);
         structuredDomBind.item = {show: true};
-        structuredDomIf.render();
         showing = structuredContainer.querySelector('.showing');
         assert.ok(showing);
         assert.equal(getComputedStyle(showing).display, 'block');
         structuredDomBind.item = {};
-        structuredDomIf.render();
         showing = structuredContainer.querySelector('.showing');
         assert.ok(showing);
         assert.equal(getComputedStyle(showing).display, 'none');
         structuredDomBind.item = {show: true};
-        structuredDomIf.render();
         showing = structuredContainer.querySelector('.showing');
         assert.ok(showing);
         assert.equal(getComputedStyle(showing).display, 'block');
@@ -519,19 +492,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var showing;
         structuredDomIf.restamp = true;
         structuredDomIf.if = false;
-        structuredDomIf.render();
         showing = structuredContainer.querySelector('.showing');
         assert.notOk(showing);
         structuredDomBind.item = {show: true};
-        structuredDomIf.render();
         showing = structuredContainer.querySelector('.showing');
         assert.ok(showing);
         structuredDomBind.item = {};
-        structuredDomIf.render();
         showing = structuredContainer.querySelector('.showing');
         assert.notOk(showing);
         structuredDomBind.item = {show: true};
-        structuredDomIf.render();
         showing = structuredContainer.querySelector('.showing');
         assert.ok(showing);
       });
@@ -546,17 +515,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (customElements.flush) {
           customElements.flush();
         }
-        x.$.domIf.render();
         var stamped = x.shadowRoot.childNodes;
         assert.equal(stamped.length, 12);
         assert.equal(stamped[7].textContent.trim(), 'Stuff');
         x.$.domIf.if = false;
-        x.$.domIf.render();
         stamped = x.shadowRoot.childNodes;
         assert.equal(stamped.length, 12);
         assert.equal(stamped[7].textContent.trim(), '');
         x.$.domIf.if = true;
-        x.$.domIf.render();
         stamped = x.shadowRoot.childNodes;
         assert.equal(stamped.length, 12);
         assert.equal(stamped[7].textContent.trim(), 'Stuff');
@@ -570,18 +536,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (customElements.flush) {
           customElements.flush();
         }
-        x.$.domIf.render();
         var stamped = x.shadowRoot.childNodes;
         assert.equal(stamped.length, 12);
         assert.equal(stamped[7].textContent.trim(), 'Stuff');
         x.$.domIf.if = false;
-        x.$.domIf.render();
         x.text = 'Hollaaaaa!';
         stamped = x.shadowRoot.childNodes;
         assert.equal(stamped.length, 12);
         assert.equal(stamped[7].textContent.trim(), '');
         x.$.domIf.if = true;
-        x.$.domIf.render();
         stamped = x.shadowRoot.childNodes;
         assert.equal(stamped.length, 12);
         assert.equal(stamped[7].textContent.trim(), 'Hollaaaaa!');
@@ -592,14 +555,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     suite('attach/detach tests', function() {
 
-      test('remove, append domif', function(done) {
+      test('remove, append domif parent', function(done) {
+        window.uid = 0;
+        let outerContainer = document.getElementById('outerContainer');
         var domif = document.querySelector('#simple');
         domif.if = true;
-        outerContainer.removeChild(domif);
+        document.body.removeChild(outerContainer);
         setTimeout(function() {
           var clients = outerContainer.querySelectorAll('x-client');
-          assert.equal(clients.length, 0);
-          outerContainer.appendChild(domif);
+          assert.equal(clients.length, 3);
+          document.body.appendChild(outerContainer);
           setTimeout(function() {
             var clients = outerContainer.querySelectorAll('x-client');
             assert.equal(clients[0].uid, 0);
@@ -653,14 +618,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       });
 
       test('move host with domif (clients persist)', function(done) {
+        window.uid = 0;
         var host = document.createElement('x-host');
         outerContainer.appendChild(host);
         setTimeout(function() {
           var clients = host.shadowRoot.querySelectorAll('x-client');
           // New clients created in host instance
-          assert.equal(clients[0].uid, 6);
-          assert.equal(clients[1].uid, 7);
-          assert.equal(clients[2].uid, 8);
+          assert.equal(clients[0].uid, 0);
+          assert.equal(clients[1].uid, 1);
+          assert.equal(clients[2].uid, 2);
           assert.equal(clients[1].previousElementSibling, clients[0]);
           assert.equal(clients[2].previousElementSibling, clients[1]);
           assert.equal(host.$.domif.previousElementSibling, clients[2]);
@@ -668,9 +634,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           setTimeout(function() {
             var clients = host.shadowRoot.querySelectorAll('x-client');
             // Clients in removed host persist
-            assert.equal(clients[0].uid, 6);
-            assert.equal(clients[1].uid, 7);
-            assert.equal(clients[2].uid, 8);
+            assert.equal(clients[0].uid, 0);
+            assert.equal(clients[1].uid, 1);
+            assert.equal(clients[2].uid, 2);
             assert.equal(clients[1].previousElementSibling, clients[0]);
             assert.equal(clients[2].previousElementSibling, clients[1]);
             assert.equal(host.$.domif.previousElementSibling, clients[2]);
@@ -680,23 +646,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       });
 
       test('remove, wait, append host with domif (clients persist)', function(done) {
+        window.uid = 0;
         var host = document.createElement('x-host');
         outerContainer.appendChild(host);
         setTimeout(function() {
           var clients = host.shadowRoot.querySelectorAll('x-client');
           // New clients created in host instance
-          assert.equal(clients[0].uid, 9);
-          assert.equal(clients[1].uid, 10);
-          assert.equal(clients[2].uid, 11);
+          assert.equal(clients[0].uid, 0);
+          assert.equal(clients[1].uid, 1);
+          assert.equal(clients[2].uid, 2);
           assert.equal(clients[1].previousElementSibling, clients[0]);
           assert.equal(clients[2].previousElementSibling, clients[1]);
           assert.equal(host.$.domif.previousElementSibling, clients[2]);
           outerContainer.removeChild(host);
           setTimeout(function() {
             // Clients in removed host persist
-            assert.equal(clients[0].uid, 9);
-            assert.equal(clients[1].uid, 10);
-            assert.equal(clients[2].uid, 11);
+            assert.equal(clients[0].uid, 0);
+            assert.equal(clients[1].uid, 1);
+            assert.equal(clients[2].uid, 2);
             assert.equal(clients[1].previousElementSibling, clients[0]);
             assert.equal(clients[2].previousElementSibling, clients[1]);
             assert.equal(host.$.domif.previousElementSibling, clients[2]);
@@ -704,9 +671,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             setTimeout(function() {
               // Clients in removed host persist
               var clients = host.shadowRoot.querySelectorAll('x-client');
-              assert.equal(clients[0].uid, 9);
-              assert.equal(clients[1].uid, 10);
-              assert.equal(clients[2].uid, 11);
+              assert.equal(clients[0].uid, 0);
+              assert.equal(clients[1].uid, 1);
+              assert.equal(clients[2].uid, 2);
               assert.equal(clients[1].previousElementSibling, clients[0]);
               assert.equal(clients[2].previousElementSibling, clients[1]);
               assert.equal(host.$.domif.previousElementSibling, clients[2]);
@@ -754,6 +721,125 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('non-upgrade case finds template', function() {
         assert.equal(nonUpgrade.textContent.trim(), 'stamped');
+      });
+
+    });
+
+    suite('ordering', function() {
+
+      test('restamp - sync thrashing if', function() {
+        window.uid = 0;
+        var host = document.createElement('x-host');
+        outerContainer.appendChild(host);
+        if (customElements.flush) {
+          customElements.flush();
+        }
+        var clients = host.shadowRoot.querySelectorAll('x-client');
+        assert.equal(clients[0].uid, 0);
+        assert.equal(clients[1].uid, 1);
+        assert.equal(clients[2].uid, 2);
+        host.$.domif.restamp = true;
+        host.$.domif.if = false;
+        host.$.domif.if = true;
+        host.$.domif.if = false;
+        host.$.domif.if = true;
+        clients = host.shadowRoot.querySelectorAll('x-client');
+        assert.equal(clients[0].uid, 6);
+        assert.equal(clients[1].uid, 7);
+        assert.equal(clients[2].uid, 8);
+      });
+
+      test('restamp - async thrashing if', function() {
+        window.uid = 0;
+        var host = document.createElement('x-host');
+        outerContainer.appendChild(host);
+        if (customElements.flush) {
+          customElements.flush();
+        }
+        var clients = host.shadowRoot.querySelectorAll('x-client');
+        assert.equal(clients[0].uid, 0);
+        assert.equal(clients[1].uid, 1);
+        assert.equal(clients[2].uid, 2);
+        host.$.domif.restamp = true;
+        host.$.domif.async = true;
+        host.$.domif.if = false;
+        host.$.domif.if = true;
+        host.$.domif.if = false;
+        host.$.domif.if = true;
+        clients = host.shadowRoot.querySelectorAll('x-client');
+        assert.equal(clients[0].uid, 0);
+        assert.equal(clients[1].uid, 1);
+        assert.equal(clients[2].uid, 2);
+        host.$.domif.render();
+        clients = host.shadowRoot.querySelectorAll('x-client');
+        assert.equal(clients[0].uid, 0);
+        assert.equal(clients[1].uid, 1);
+        assert.equal(clients[2].uid, 2);
+      });
+
+      test('effects in if not run when `if` goes false via property', function() {
+        var el = document.createElement('x-guard-prop');
+        document.body.appendChild(el);
+        if (customElements.flush) {
+          customElements.flush();
+        }
+        el.bool = true;
+        assert.equal(el.guarded.callCount, 1);
+        el.bool = false;
+        assert.equal(el.guarded.callCount, 1);
+        document.body.removeChild(el);
+      });
+
+      test('effects in if not run when `if` goes false via inline function', function() {
+        var el = document.createElement('x-guard-inline');
+        document.body.appendChild(el);
+        if (customElements.flush) {
+          customElements.flush();
+        }
+        el.bool = true;
+        assert.equal(el.guarded.callCount, 1);
+        el.bool = false;
+        assert.equal(el.guarded.callCount, 1);
+        document.body.removeChild(el);
+      });
+
+      test('effects in if not run when `if` goes false via computed property', function() {
+        var el = document.createElement('x-guard-computed');
+        document.body.appendChild(el);
+        if (customElements.flush) {
+          customElements.flush();
+        }
+        el.bool = true;
+        assert.equal(el.guarded.callCount, 1);
+        el.bool = false;
+        assert.equal(el.guarded.callCount, 1);
+        document.body.removeChild(el);
+      });
+
+      test('effects in if not run when `if` goes false via object sub-property', function() {
+        var el = document.createElement('x-guard-object');
+        document.body.appendChild(el);
+        if (customElements.flush) {
+          customElements.flush();
+        }
+        el.obj = {bool: true};
+        assert.equal(el.guarded.callCount, 1);
+        el.obj = {bool: false};
+        assert.equal(el.guarded.callCount, 1);
+        document.body.removeChild(el);
+      });
+
+      test('effects in if not run when `if` goes false via computed from object sub-property', function() {
+        var el = document.createElement('x-guard-object-computed');
+        document.body.appendChild(el);
+        if (customElements.flush) {
+          customElements.flush();
+        }
+        el.obj = {bool: true};
+        assert.equal(el.guarded.callCount, 1);
+        el.obj = {bool: false};
+        assert.equal(el.guarded.callCount, 1);
+        document.body.removeChild(el);
       });
 
     });
